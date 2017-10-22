@@ -1,0 +1,60 @@
+.activity-input {
+  background: $cyan;
+  padding: 20px;
+
+  &_input-group {
+    width: 100%;
+    background: $white;
+    padding: 13px;
+    display: flex;
+  }
+
+  &_duration {
+    background: $gray-700;
+    color: #ffffff;
+    padding: 6px 7px;
+    border: none;
+    outline: none;
+    width: 65px;
+    text-align: right;
+    margin-right: 13px;
+  }
+
+  &_content {
+    outline: none;
+    border: none;
+    width: 100%;
+  }
+}
+
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &_item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    align-items: center;
+
+    &_date {
+      color: $gray-700;
+      font-weight: bold;
+      flex: 0 0 80px;
+    }
+
+    &_duration {
+      background: $gray-700;
+      color: #ffffff;
+      padding: 4px 5px;
+      margin-right: 10px;
+      border-radius: 2px;
+      text-align: right;
+      flex: 0 0 65px;
+    }
+
+    &_content {
+      flex: 0 1 100%;
+    }
+  }
+}
