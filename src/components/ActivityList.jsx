@@ -5,7 +5,7 @@ import Activity from './Activity.jsx';
 export default class ActivityList extends React.Component {
   render() {
     const activities = this.props.activities.map(activity =>
-      <Activity activity={activity} key={activity.date} />
+      <Activity activity={activity} key={activity.key} />
     );
 
     return (

@@ -56,5 +56,9 @@
     &_content {
       flex: 0 1 100%;
     }
+
+    &_close {
+      cursor: pointer;
+    }
   }
 }

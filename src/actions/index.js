@@ -1,6 +1,7 @@
 import {
-  ADD_ACTIVITY
-  } from './actionTypes.js';
+  ADD_ACTIVITY,
+  REMOVE_ACTIVITY
+  } from './types';
 
 export const addActivity = (date, duration, content) => {
   return {
@@ -8,5 +9,12 @@ export const addActivity = (date, duration, content) => {
     date,
     duration,
     content
+  }
+}
+
+export const removeActivity = (key) => {
+  return {
+    type: REMOVE_ACTIVITY,
+    key
   }
 }

@@ -4,7 +4,7 @@ import moment from 'moment';
 import formatMoment from 'moment-duration-format';
 import { addActivity } from '../actions';
 
-class ActivityInput extends React.Component {
+export default class ActivityInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,19 +20,27 @@ class ActivityInput extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    if (!this.state.duration.trim()) {
+    if (!this.state.content.trim()) {
       alert('Duration can\'t be empty');
       return;
     }
-    if (!this.state.content.trim()) {
-      alert('Content can\'t be empty');
-      return;
-    }
+
+    const duration = this.state.duration.
+                          trim().
+                          split(/[h:]{1}/).
+                          reduceRight((prev, curr, index) => {
+      const multiplier = index ? 60 : 1;
+      return prev + curr * 60000 * multiplier;
+    }, 0);
 
     const date = moment().valueOf();
 
-    dispatch(addActivity(date, this.state.duration, this.state.content));
-    this.input.value = '';
+    this.props.onAddActivity(date, duration, this.state.content);
+
+    this.setState({
+      duration: '',
+      content: ''
+    });
   }
 
   handleDurationChange(event) {
@@ -56,6 +64,7 @@ class ActivityInput extends React.Component {
             className="activity-input_duration"
             type="text"
             onChange={this.handleDurationChange}
+            placeholder='00:00'
             value={this.state.duration}/>
           <input
             className="activity-input_content"
@@ -68,7 +77,3 @@ class ActivityInput extends React.Component {
     )
   }
 }
-
-ActivityInput = connect()(ActivityInput);
-
-export default ActivityInput;

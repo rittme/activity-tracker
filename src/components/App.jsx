@@ -1,12 +1,12 @@
 import React from 'react';
-import ActivityInput from './ActivityInput.jsx'
+import ActivityInputContainer from './ActivityInputContainer.jsx'
 import ActivityListContainer from './ActivityListContainer.jsx'
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <ActivityInput />
+        <ActivityInputContainer />
         <ActivityListContainer />
       </div>
     )
