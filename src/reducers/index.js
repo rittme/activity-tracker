@@ -24,8 +24,6 @@ function activities(state = [], action) {
   }
 }
 
-const activityTracker = combineReducers({
+export {
   activities
-});
-
-export default activityTracker;
+};
